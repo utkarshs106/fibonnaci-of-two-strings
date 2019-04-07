@@ -1,0 +1,53 @@
+n=int(input())
+list1=[]
+list2=[]
+list3=[]
+def myfun2(lena,lenb,c):
+    sum=0
+    counter=2
+    while sum<int(c):
+        counter+=1
+        sum=lena+lenb
+        lena=lenb
+        lenb=sum
+    return counter
+
+def myfun1(n):
+    str1="a"
+    str2="b"
+    str3=""
+    for i in range(n-2):
+        str3=str1+str2
+        str1=str2
+        str2=str3
+    return str3
+
+for i in range(n):
+    value=input().split(" ")
+    list1.append(value[0])
+    list2.append(value[1])
+    list3.append(value[2])
+
+for i in range(n):
+    a=list1[i]
+    b=list2[i]
+    c=list3[i]
+    lena=len(a)
+    lenb=len(b)
+
+    itscounter = myfun2(lena,lenb,c)
+    thisisterm = myfun1(itscounter)
+    finalstr=""
+    finallist=[]
+
+    for i in thisisterm:
+        if i=="a":
+            finallist.append(int(a))
+        elif i=="b":
+            finallist.append(int(b))
+
+    for i in finallist:
+        finalstr=finalstr+str(i)
+
+    print(finalstr)
+    print(finalstr[int(c)-1])
